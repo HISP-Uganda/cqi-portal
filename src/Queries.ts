@@ -10,7 +10,10 @@ export const useD2 = () => {
   return useQuery<any, Error>(['d2'],
     async () => {
       const d2 = await init({
-        baseUrl: 'http://localhost:3002/api',
+        baseUrl: 'https://mets.dev.hispuganda.org/api',
+        headers: {
+          Authorization: `Basic YWRtaW46SDE1UFVnYW5kYTMyMSQ=`,
+        }
       });
       setD2(d2);
       const api = d2.Api.getApi();
